@@ -1,0 +1,12 @@
+Sprite : Objeto visible en pantalla 
+
+pygame.image.load('<ruta de la imagen/>') para subir imagenes
+
+rect: pygame realiza las operaciones con los sprites a través de 
+       rectangulos con coordenadas 
+ 
+blit : funciona para dibujar una superficie sobre otra en la 
+       posicion que le indiquemos mediante coordenadas
+
+esquina superior izquierda de la pantalla es (0,0)
+esquina inferior derecha son las variables (ancho, alto)
