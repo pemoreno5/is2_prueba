@@ -10,7 +10,7 @@ class Combi(pygame.sprite.Sprite):
 	def __init__(self, posx, posy):
 		pygame.sprite.Sprite.__init__(self)
 
-		self.imagen1 = pygame.image.load("C:\Software 2 Proyecto\is2_prueba\ProyectoSoftware\imagenes\combi.jpg")
+		self.imagen1 = pygame.image.load("C:\Software 2 Proyecto\is2_prueba\chasqui.jpg")
 
 		self.rect = self.imagen1.get_rect()
 
@@ -24,7 +24,7 @@ class Combi(pygame.sprite.Sprite):
 pygame.init()
 ventana = pygame.display.set_mode((ancho, alto))
 pygame.display.set_caption("CombiRacer")
-imagenFondo = pygame.image.load("C:\Software 2 Proyecto\is2_prueba\ProyectoSoftware\imagenes\pantallaNegro.jpg")
+imagenFondo = pygame.image.load("C:\Software 2 Proyecto\is2_prueba\pantallaNegro.jpg")
 
 jugador = Combi(ancho/2,alto-800)
 
