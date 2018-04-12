@@ -1,0 +1,9 @@
+Juego de combi:
+Primero tienen que haber distintos tipos de animaciones que se le puede hacer al carro o jugador:
+•	En primer lugar, se pondrán 3 vías en el juego, en la cual la combi se puede mover, y para modificar el juego, se le pueden agregar hasta un máximo de 5 vías.
+•	La animación va a estar compuesta cuando el carro se mueve para la derecha y para la izquierda. Los dibujos se buscarán o se harán (usando Paint u otro software que facilite el dibujo)
+•	Van a haber carros y bloques que evitaran el paso de la combi, si la combi choca con ellos, pierde.
+•	Va a haber un Score, y por cada 50 de Score, se va a aumentar la velocidad de la combi en “1”, “2” o “3” de acuerdo con la dificultad.
+•	Si se mantiene el botón de abajo apretado, reducirá la velocidad de la combi en “3”.
+•	Va a haber un menú al iniciar el programa. El menú tendrá 4 opciones (pueden agregarse más opciones de acuerdo con los requerimientos del juego), una va a ser para empezar el juego, la otra para ver los distintos modelos de combi, otro será los controles de juego y, por último, el botón de salida, ahí se va a escoger la dificultad. OPCIONAL, se pueden agregar distintos tipos de modelo de combi de acuerdo con los modelos que hay en el Perú
+•	Va ha haber música relacionada con el Perú.
