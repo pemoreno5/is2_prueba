@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var onServicioDevuelto = function(evt){
+	  if (evt.target.readyState == 4 && evt.target.status == 200){
+	      var listadoJSON = JSON.parse(evt.target.responseText);
+	      console.log(listadoJSON);
+		}
+	};
+
+	var req = new XMLHttpRequest();
+	var url = "http://localhost:4567/estado_usuario/listar";
+	req.open("GET", url, true);  //asincrona
+	req.onreadystatechange = onServicioDevuelto;
+	req.send();
+</script>
+</body>
+</html>
