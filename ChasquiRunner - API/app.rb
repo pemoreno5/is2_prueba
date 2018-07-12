@@ -5,7 +5,7 @@ get '/jugador/listar' do
   return DB[:jugador].all.to_a.to_json
 end
 
-get '/jugador/:id' do
+get '/jugador/id/:id' do
   rpta = DB[:jugador].where(id: params[:id]).first.to_json
   if rpta == 'null'
     rpta = 'Jugador no existe'
@@ -23,19 +23,6 @@ get '/jugador/status/:status' do
   end
 end
 
-delete '/jugador/eliminar' do
-  peticion = JSON.parse(request.body.read)
-  usuario = peticion['usuario']
-  puts usuario
-  rpta = DB[:jugador].where(usuario: usuario).delete
-  if rpta == 'null'
-    rpta = 'Jugador no existe'
-  else
-    redirect '/jugador/listar'
-    
-  end
-end
-
 post '/jugador/crear' do
   peticion = JSON.parse(request.body.read)
   puts peticion
@@ -49,10 +36,15 @@ post '/jugador/crear' do
   redirect 'jugador/listar'
 end
 
-delete '/eliminarescenario/:id' do
-  rpta = DB[:escenario].where(id: params[:id]).delete
+delete '/jugador/eliminar' do
+  peticion = JSON.parse(request.body.read)
+  usuario = peticion['usuario']
+  puts usuario
+  rpta = DB[:jugador].where(usuario: usuario).delete
   if rpta == 'null'
-    rpta = 'Escenario no existe'
+    rpta = 'Jugador no existe'
+  else
+    redirect '/jugador/listar'
   end
 end
 
@@ -60,26 +52,44 @@ get '/escenario/listar' do
   return DB[:escenario].all.to_a.to_json
 end
 
-get '/jugador/listar' do
-  return DB[:escenario].all.to_a.to_json
+get '/escenario/id/:id' do
+  rpta = DB[:escenario].where(id: params[:id]).first.to_json
+  if rpta == 'null'
+    rpta = 'Escenario no existe'
+  else
+    return rpta
+  end
 end
 
 post '/escenario/crear' do
-  id = params['id']
-  nombre = params['nombre']
-  repositorio = params['repositorio']
-  DB[:sistemas].insert(id: id, nombre: nombre, repositorio: repositorio)
+  peticion = JSON.parse(request.body.read)
+  nombre = peticion['nombre']
+  DB[:escenario].insert(nombre: nombre)
   redirect 'escenario/listar'
+end
+
+delete '/escenario/eliminar' do
+  peticion = JSON.parse(request.body.read)
+  nombre = peticion['nombre']
+  puts escenario
+  rpta = DB[:escenario].where(nombre: nombre).delete
+  if rpta == 'null'
+    rpta = 'Escenario no existe'
+  else
+    redirect '/escenario/listar'
+  end
 end
 
 get '/obstaculo/listar' do
   return DB[:obstaculo].all.to_a.to_json
 end
 
-get '/obstaculo/:id' do
+get '/obstaculo/id/:id' do
   rpta = DB[:obstaculo].where(id: params[:id]).first.to_json
   if rpta == 'null'
     rpta = 'Obstaculo no existe'
+  else
+    return rpta
   end
 end
 
@@ -91,16 +101,21 @@ get '/obstaculo/:nombre' do
 end
 
 post '/obstaculo/crear' do
-  id = params['id']
-  nombre = params['nombre']
-  DB[:sistemas].insert(id: id, nombre: nombre)
+  peticion = JSON.parse(request.body.read)
+  nombre = peticion['nombre']
+  DB[:obstaculo].insert(nombre: nombre)
   redirect 'obstaculo/listar'
 end
 
-delete '/eliminarobstaculo/:id' do
-  rpta = DB[:escenario].where(id: params[:id]).delete
+delete '/obstaculo/eliminar' do
+  peticion = JSON.parse(request.body.read)
+  nombre = peticion['nombre']
+  puts nombre
+  rpta = DB[:obstaculo].where(nombre: nombre).delete
   if rpta == 'null'
     rpta = 'Obstaculo no existe'
+  else
+    redirect '/obstaculo/listar'
   end
 end
 
@@ -108,10 +123,12 @@ get '/powerups/listar' do
   return DB[:powerups].all.to_a.to_json
 end
 
-get '/powerups/:id' do
+get '/powerups/id/:id' do
   rpta = DB[:powerups].where(id: params[:id]).first.to_json
   if rpta == 'null'
     rpta = 'Powerup no existe'
+  else
+    return rpta
   end
 end
 
@@ -123,15 +140,20 @@ get '/powerups/:nombre' do
 end
 
 post '/powerups/crear' do
-  id = params['id']
-  nombre = params['nombre']
-  DB[:sistemas].insert(id: id, nombre: nombre)
+  peticion = JSON.parse(request.body.read)
+  nombre = peticion['nombre']
+  DB[:powerups].insert(nombre: nombre)
   redirect 'powerups/listar'
 end
 
-delete '/eliminarobstaculo/:id' do
-  rpta = DB[:powerups].where(id: params[:id]).delete
+delete '/powerups/eliminar' do
+  peticion = JSON.parse(request.body.read)
+  nombre = peticion['nombre']
+  puts nombre
+  rpta = DB[:powerups].where(nombre: nombre).delete
   if rpta == 'null'
-    rpta = 'Powerups no existe'
+    rpta = 'Escenario no existe'
+  else
+    redirect '/powerups/listar'
   end
 end
