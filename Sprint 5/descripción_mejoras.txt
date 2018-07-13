@@ -1,0 +1,11 @@
+﻿Mejoras Nro.1:
+- Interacción con powerups: ahora desapareces cuando colisionan con el jugador y se le da una recompensa según el tipo de powerup. P.ej. al coger el powerup1 le da más velocidad.
+- Interacción con obstaculos: cada vez que colisiona con uno este desaparece y el jugador pierde 1 vida.
+- Sonidos: se añadió sonidos cuando colisiona con obstáculos y powerups.
+
+
+Mejoras Nro.2:
+- Pausar juego: 
+* la ventana de juego tiene dimensiones de 640x800, sin embargo, al pausar el juego las dimensiones de la ventana cambia a 640x480. Por lo que, luego de despausar el juego, la ventana vuelve a su dimensión original (640x800).
+* En el menú de pausa cuando se pulsa para salir al menú del juego, la música se corta.
+- Se centró la ventana del juego, lo que evitar mover la ventana una vez empezado el juego.
